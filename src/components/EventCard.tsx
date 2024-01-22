@@ -29,7 +29,7 @@ export default function EventCard({
       {/* Fondo oscuro para resaltar el texto */}
       <div
         className="z-10 absolute top-0 bottom-0 w-full h-full
-      bg-gradient-to-b from-transparent from-40% via-black/80 to-black/90"
+      bg-gradient-to-b from-transparent from-30% via-black/80 to-black/90"
       />
       {/* Tag */}
       <div className="uppercase py-2 px-4 bg-brand-100 rounded-bl-lg font-semibold absolute top-0 right-0 z-20">
@@ -58,15 +58,22 @@ export default function EventCard({
 
         <p className="text-sm">{description}</p>
         {/* Acciones */}
-        <div className="mt-2 flex justify-between items-center">
+        <div className="mt-2 flex flex-wrap gap-4 justify-between items-center">
           <LinkTag
             target="_blank"
             icon={<Gmail className="size-5" />}
             href={calendarLink}
             label="Añadir a calendario"
-            className="z-10 w-fit"
+            className="z-10 w-fit hidden md:flex"
           />
-          <div>
+          <LinkTag
+            target="_blank"
+            icon={<Gmail className="size-5" />}
+            href={calendarLink}
+            label="Guardar"
+            className="z-10 w-fit md:hidden"
+          />
+          <div className="ml-auto">
             <p className="flex gap-2 items-center">
               Ver evento <ArrowRight className="size-4" />
             </p>
