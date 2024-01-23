@@ -4,26 +4,46 @@ import { SponsorCard } from "@/components/SponsorCard";
 import { ArrowRight } from "@/icons/ArrowRight";
 import { Calendar } from "@/icons/Calendar";
 import { Gmail } from "@/icons/Gmail";
-import { formatDate } from "@/utils/formatDate";
-import { formatTime } from "@/utils/formatTime";
 import Image from "next/image";
 import { EventPage } from "../event.types";
+import { Metadata } from "next";
+import { formatDate } from "@/utils/formatDate";
+import { formatTime } from "@/utils/formatTime";
 
-const getEventPage = async (slug: string[]) => {
-  const res = await fetch(
-    `https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/${slug[0]}/${slug[1]}.json`,
-    { next: { revalidate: 1800 } }
-  );
+interface Props {
+  params: { slug: string[] };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const baseUrl =
+  "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages";
+
+export const getEvent = async (
+  year: string,
+  id: string
+): Promise<EventPage> => {
+  const res = await fetch(`${baseUrl}/events/${year}/${id}.json`);
   const data = await res.json();
   return data;
 };
 
-export default async function EventPage({
-  params,
-}: {
-  params: { slug: string[] };
-}) {
-  const page: EventPage = await getEventPage(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const data = await getEvent(slug[0], slug[1]);
+
+  return {
+    title: data.banner.title,
+    description: data.banner.description,
+    openGraph: {
+      images: [`${baseUrl}/images/opengraph/${slug[1]}.jpg`],
+    },
+  };
+}
+
+export default async function EventPage({ params }: Props) {
+  const { slug } = params;
+  const page: EventPage = await getEvent(slug[0], slug[1]);
+
   return (
     <>
       {/* Banner */}
@@ -34,7 +54,7 @@ export default async function EventPage({
         <div className="w-full md:w-1/2 flex flex-col gap-4">
           <div className="text-surface-mixed-100 flex gap-2 items-end">
             <Calendar className="size-7 stroke-2" />
-            <time>{formatDate(new Date(page.banner.time))}</time>
+            <time>{formatDate(page.banner.time)}</time>
           </div>
           <h1 className="text-surface-mixed-100 font-bold text-4xl md:text-5xl">
             {page.banner.title}

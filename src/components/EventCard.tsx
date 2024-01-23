@@ -53,7 +53,7 @@ export default function EventCard({
         {/* Horario */}
         <div className="flex gap-2">
           <Calendar className="size-5" />
-          <time>{formatDate(new Date(time))}</time>
+          <time>{formatDate(time)}</time>
         </div>
 
         <p className="text-sm">{description}</p>

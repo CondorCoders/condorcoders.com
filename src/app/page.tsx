@@ -37,16 +37,16 @@ export default function Home() {
       </h1>
       <div className="flex">
         <Image
-          width={600}
-          height={600}
+          width={300}
+          height={300}
           className="w-6/12"
           src="/Mascot-Female.webp"
           alt="Female Mascota Condor Coders"
         />
 
         <Image
-          width={600}
-          height={600}
+          width={300}
+          height={300}
           className="w-6/12"
           src="/Mascot-Male.webp"
           alt="Mascota Condor Coders"

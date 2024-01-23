@@ -3,12 +3,16 @@ import { Event } from "./event.types";
 
 const getEvents = async () => {
   const res = await fetch(
-    "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/index.json",
-    { next: { revalidate: 1800 } }
+    "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/index.json"
   );
   const data = await res.json();
   return data;
 };
+
+export async function generateStaticParams() {
+  const data: Event[] = await getEvents();
+  return data.map((event) => ({ slug: event.url }));
+}
 
 export default async function EventosPage() {
   const events: Event[] = await getEvents();

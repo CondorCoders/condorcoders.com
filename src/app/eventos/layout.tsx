@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Eventos Condor Coders",
+  description: "Entérate de los eventos de la comunidad.",
+};
+
 export default function EventLayout({
   children,
 }: {
