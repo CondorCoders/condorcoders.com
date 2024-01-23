@@ -3,10 +3,10 @@ import { Event } from "./event.types";
 
 const getEvents = async () => {
   const res = await fetch(
-    "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/index.json"
+    "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/index.json",
+    { next: { revalidate: 1800 } }
   );
   const data = await res.json();
-  console.log(data);
   return data;
 };
 

@@ -11,7 +11,8 @@ import { EventPage } from "../event.types";
 
 const getEventPage = async (slug: string[]) => {
   const res = await fetch(
-    `https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/${slug[0]}/${slug[1]}.json`
+    `https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages/events/${slug[0]}/${slug[1]}.json`,
+    { next: { revalidate: 1800 } }
   );
   const data = await res.json();
   return data;
