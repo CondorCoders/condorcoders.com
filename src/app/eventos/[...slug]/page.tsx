@@ -18,10 +18,7 @@ interface Props {
 const baseUrl =
   "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages";
 
-export const getEvent = async (
-  year: string,
-  id: string
-): Promise<EventPage> => {
+const getEvent = async (year: string, id: string): Promise<EventPage> => {
   const res = await fetch(`${baseUrl}/events/${year}/${id}.json`);
   const data = await res.json();
   return data;
