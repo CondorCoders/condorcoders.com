@@ -11,6 +11,7 @@ import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
 import { Clock } from "@/icons/Clock";
 import { ItineraryDate } from "@/components/ItineraryDate";
+import { Timezone } from "@/components/Timezone";
 
 interface Props {
   params: { slug: string[] };
@@ -42,7 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function EventPage({ params }: Props) {
   const { slug } = params;
   const page: EventPage = await getEvent(slug[0], slug[1]);
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return (
     <>
       {/* Banner */}
@@ -142,12 +142,7 @@ export default async function EventPage({ params }: Props) {
           <h2 className="font-semibold text-5xl">
             {page.agenda.title || "Agenda"}
           </h2>
-          <span className="flex gap-2 items-center">
-            <Clock className="size-5" />
-            Zona horaria:{" "}
-            <span className="font-semibold text-brand-600">{timezone}</span>
-          </span>
-
+          <Timezone />
           <p className="text-xl">{page.agenda.description}</p>
           <LinkTag
             target="_blank"
