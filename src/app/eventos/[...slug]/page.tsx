@@ -9,7 +9,6 @@ import { EventPage } from "../event.types";
 import { Metadata } from "next";
 import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
-import { Clock } from "@/icons/Clock";
 import { ItineraryDate } from "@/components/ItineraryDate";
 import { Timezone } from "@/components/Timezone";
 
@@ -22,7 +21,9 @@ const baseUrl =
   "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages";
 
 const getEvent = async (year: string, id: string): Promise<EventPage> => {
-  const res = await fetch(`${baseUrl}/events/${year}/${id}.json`);
+  const res = await fetch(`${baseUrl}/events/${year}/${id}.json`, {
+    next: { revalidate: 1800 },
+  });
   const data = await res.json();
   return data;
 };
