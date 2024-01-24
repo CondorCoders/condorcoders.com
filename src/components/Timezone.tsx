@@ -1,3 +1,4 @@
+"use client";
 import { Clock } from "@/icons/Clock";
 
 export const Timezone = () => {
