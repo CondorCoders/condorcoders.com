@@ -69,7 +69,7 @@ export default async function EventPage({ params }: Props) {
             <LinkTag
               target="_blank"
               href={page.banner.signupLink}
-              label="Inscribirme"
+              label="Registrarse"
               className="w-fit"
             />
             <a target="_blank" className="group" href={page.banner.eventLink}>
