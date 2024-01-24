@@ -21,7 +21,7 @@ export const SponsorCard = ({
       <Image
         width={200}
         height={200}
-        className="w-full"
+        className="h-full w-full object-contain"
         src={logo}
         alt={name}
       />
