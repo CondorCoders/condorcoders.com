@@ -16,8 +16,8 @@ export interface EventPage {
 }
 
 interface ItineraryItem {
-  start: number;
-  end: number;
+  start: string;
+  end: string;
   heading: string;
   description: string;
   speaker: Speaker;
@@ -72,4 +72,5 @@ interface Banner {
   description: string;
   calendarLink: string;
   eventLink: string;
+  signupLink: string;
 }

@@ -9,6 +9,7 @@ import { EventPage } from "../event.types";
 import { Metadata } from "next";
 import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
+import { Clock } from "@/icons/Clock";
 
 interface Props {
   params: { slug: string[] };
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function EventPage({ params }: Props) {
   const { slug } = params;
   const page: EventPage = await getEvent(slug[0], slug[1]);
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   return (
     <>
@@ -65,10 +67,9 @@ export default async function EventPage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <LinkTag
               target="_blank"
-              icon={<Gmail className="size-5" />}
-              href={page.banner.calendarLink}
-              label="Añadir a calendario"
-              className="z-10 w-fit"
+              href={page.banner.signupLink}
+              label="Inscribirme"
+              className="w-fit"
             />
             <a target="_blank" className="group" href={page.banner.eventLink}>
               <p className="flex gap-2 items-center text-surface-mixed-100">
@@ -141,7 +142,20 @@ export default async function EventPage({ params }: Props) {
           <h2 className="font-semibold text-5xl">
             {page.agenda.title || "Agenda"}
           </h2>
+          <span className="flex gap-2 items-center">
+            <Clock className="size-5" />
+            Zona horaria:{" "}
+            <span className="font-semibold text-brand-600">{timezone}</span>
+          </span>
+
           <p className="text-xl">{page.agenda.description}</p>
+          <LinkTag
+            target="_blank"
+            icon={<Gmail className="size-5" />}
+            href={page.banner.calendarLink}
+            label="Añadir a calendario"
+            className="w-fit"
+          />
         </div>
 
         <ol className="mt-8 relative border-s max-w-xl border-gray-200 dark:border-gray-700">
@@ -161,8 +175,7 @@ export default async function EventPage({ params }: Props) {
             <li key={item.heading} className="mb-20 ms-4">
               <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border  border-gray-900 bg-gray-700"></div>
               <time className="mb-1 font-normal leading-none text-brand-600">
-                {formatTime(new Date(item.start))} -{" "}
-                {formatTime(new Date(item.end))}
+                {formatTime(item.start)} - {formatTime(item.end)}
               </time>
               <h3 className="text-2xl font-semibold text-brand-600 ">
                 {item.heading}

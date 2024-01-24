@@ -3,7 +3,11 @@ import { Onest } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
-const onest = Onest({ subsets: ["latin"] });
+const onest = Onest({
+  adjustFontFallback: false,
+  display: "swap",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://condorcoders.com"),
