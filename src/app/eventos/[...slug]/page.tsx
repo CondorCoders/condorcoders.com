@@ -10,6 +10,7 @@ import { Metadata } from "next";
 import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
 import { Clock } from "@/icons/Clock";
+import { ItineraryDate } from "@/components/ItineraryDate";
 
 interface Props {
   params: { slug: string[] };
@@ -42,7 +43,6 @@ export default async function EventPage({ params }: Props) {
   const { slug } = params;
   const page: EventPage = await getEvent(slug[0], slug[1]);
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
   return (
     <>
       {/* Banner */}
@@ -174,9 +174,7 @@ export default async function EventPage({ params }: Props) {
           {page.agenda.itinerary.map((item) => (
             <li key={item.heading} className="mb-20 ms-4">
               <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border  border-gray-900 bg-gray-700"></div>
-              <time className="mb-1 font-normal leading-none text-brand-600">
-                {formatTime(item.start)} - {formatTime(item.end)}
-              </time>
+              <ItineraryDate startDate={item.start} endDate={item.end} />
               <h3 className="text-2xl font-semibold text-brand-600 ">
                 {item.heading}
               </h3>
