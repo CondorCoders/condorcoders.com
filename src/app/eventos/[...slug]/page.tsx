@@ -182,8 +182,9 @@ export default async function EventPage({ params }: Props) {
                     height={200}
                     src={item.speaker.image}
                     alt={item.speaker.name}
-                    className="size-12 rounded-full object-cover"
+                    className="max-w-12 h-12 rounded-full object-cover"
                   />
+
                   <div>
                     <p className="text-bold">{item.speaker.name}</p>
                     {item.speaker.title && (
