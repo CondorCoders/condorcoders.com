@@ -3,6 +3,7 @@ import { LinkTag } from "./LinkTag";
 import { Instagram } from "@/icons/Instagram";
 import { LinkedIn } from "@/icons/LinkedIn";
 import { TikTok } from "@/icons/TikTok";
+import { Website } from "@/icons/Website";
 
 interface Social {
   icon: string;
@@ -41,11 +42,13 @@ export const SpeakerCard = ({
             instagram: Instagram,
             linkedin: LinkedIn,
             tiktok: TikTok,
+            website: Website,
           }[social.icon];
 
           if (!Icon) return null;
           return (
             <LinkTag
+              target="_blank"
               key={social.icon}
               className=" min-w-fit"
               icon={<Icon className="size-4" />}
