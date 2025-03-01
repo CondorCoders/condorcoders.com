@@ -17,11 +17,7 @@ export default function ProyectosPage() {
       <section className="mt-7 grid auto-rows-[25rem] grid-cols-12 gap-4">
         {proyectosConfig.map((proyecto) => (
           <Card
-            key={proyecto.title}
-            title={proyecto.title}
-            description={proyecto.description}
-            thumbnail={proyecto.thumbnail}
-            link={proyecto.link}
+            {...proyecto}
             linkText="Ver proyecto"
             actionText="Github"
             actionIcon={<GitHub className="size-5" />}
