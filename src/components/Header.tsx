@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const links = [{ title: "Eventos", path: "/eventos" }];
+const links = [
+  { title: "Eventos", path: "/eventos" },
+  { title: "Proyectos", path: "/proyectos" },
+];
 
 export default function Header() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -37,7 +40,7 @@ export default function Header() {
           <span className="text-lg">Condor Coders</span>
         </div>
 
-        <nav className="flex items-center justify-center">
+        <nav className="flex items-center justify-center gap-2">
           {links.map((link) => (
             <Link
               key={link.title}
