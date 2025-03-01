@@ -5,10 +5,9 @@ import { ArrowRight } from "@/icons/ArrowRight";
 import { Calendar } from "@/icons/Calendar";
 import { Gmail } from "@/icons/Gmail";
 import Image from "next/image";
-import { EventPage } from "../event.types";
+import type { EventPage } from "../event.types";
 import { Metadata } from "next";
 import { formatDate } from "@/utils/formatDate";
-import { formatTime } from "@/utils/formatTime";
 import { ItineraryDate } from "@/components/ItineraryDate";
 import { Timezone } from "@/components/Timezone";
 
