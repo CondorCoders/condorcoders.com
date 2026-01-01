@@ -1,8 +1,8 @@
-import { AnchorHTMLAttributes } from "react";
+import { AnchorHTMLAttributes, ReactNode } from "react";
 
 interface LinkTagProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   label?: string;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 }
 
 export const LinkTag = ({ label, icon, className, ...props }: LinkTagProps) => {

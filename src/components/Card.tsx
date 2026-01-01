@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LinkTag } from "./LinkTag";
 import { ArrowRight } from "@/icons/ArrowRight";
+import { ReactNode } from "react";
 
 interface CardProps {
   title: string;
@@ -8,7 +9,7 @@ interface CardProps {
   thumbnail?: string;
   link: string;
   linkText?: string;
-  actionIcon?: JSX.Element;
+  actionIcon?: ReactNode;
   actionText?: string;
   actionLink?: string;
 }
