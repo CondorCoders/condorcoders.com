@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header
-      className={`transition-colors backdrop-filter backdrop-blur duration-500 m-auto sticky top-0 z-10 w-full
+      className={`transition-colors backdrop-filter backdrop-blur-sm duration-500 m-auto sticky top-0 z-10 w-full
     ${isScrolling ? "bg-surface-mixed-100/75" : "bg-transparent"}`}
     >
       <div className="flex h-16 items-center justify-between px-6 py-3 max-w-6xl m-auto">

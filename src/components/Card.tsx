@@ -28,7 +28,7 @@ export const Card = ({
       {/* Fondo oscuro para resaltar el texto */}
       <div
         className="z-10 absolute top-0 bottom-0 w-full h-full
-    bg-gradient-to-b from-transparent from-30% via-black/80 to-black/90"
+    bg-linear-to-b from-transparent from-30% via-black/80 to-black/90"
       />
 
       {/* Imagen de fondo */}

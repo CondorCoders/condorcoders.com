@@ -48,7 +48,7 @@ export default async function EventPage({ params }: Props) {
       {/* Banner */}
       <section
         id="banner"
-        className="flex flex-col justify-between gap-4 shadow-xl shadow-white/30 backdrop-blur-md p-8 w-full min-h-96 relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-50 from-30% via-pink-300 via-60% to-emerald-300 to-90%"
+        className="flex flex-col justify-between gap-4 shadow-xl shadow-white/30 backdrop-blur-md p-8 w-full min-h-96 relative rounded-3xl overflow-hidden bg-linear-to-br from-pink-50 from-30% via-pink-300 via-60% to-emerald-300 to-90%"
       >
         <div className="w-full md:w-1/2 flex flex-col gap-4">
           <div className="text-surface-mixed-100 flex gap-2 items-end">
@@ -159,7 +159,7 @@ export default async function EventPage({ params }: Props) {
             aria-hidden="true"
           >
             <div
-              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
               style={{
                 clipPath:
                   "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",

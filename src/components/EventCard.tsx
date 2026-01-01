@@ -29,7 +29,7 @@ export default function EventCard({
       {/* Fondo oscuro para resaltar el texto */}
       <div
         className="z-10 absolute top-0 bottom-0 w-full h-full
-      bg-gradient-to-b from-transparent from-30% via-black/80 to-black/90"
+      bg-linear-to-b from-transparent from-30% via-black/80 to-black/90"
       />
       {/* Tag */}
       <div className="uppercase py-2 px-4 bg-brand-100 rounded-bl-lg font-semibold absolute top-0 right-0 z-20">

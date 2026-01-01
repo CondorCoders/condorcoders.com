@@ -18,14 +18,10 @@ const socialMediaLinks = [
   },
   {
     icon: Facebook,
-    label: "Youtube",
+    label: "Facebook",
     url: "https://www.facebook.com/condorcoders/",
   },
-  {
-    icon: GitHub,
-    label: "GitHub",
-    url: "https://github.com/CondorCoders",
-  },
+  { icon: GitHub, label: "GitHub", url: "https://github.com/CondorCoders" },
 ];
 
 export default function Home() {

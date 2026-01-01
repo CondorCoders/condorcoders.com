@@ -24,7 +24,7 @@ export const SpeakerCard = ({
   title,
 }: SpeakerCardProps) => {
   return (
-    <div className="group flex flex-col items-center gap-4 justify-center bg-gradient-to-br p-8 from-surface-mixed-100 via-transparent hover:via-white/5  to-transparent transition-all col-span-6 md:col-span-3 lg:col-span-2 shadow-inner shadow-white/10 rounded-xl">
+    <div className="group flex flex-col items-center gap-4 justify-center bg-linear-to-br p-8 from-surface-mixed-100 via-transparent hover:via-white/5  to-transparent transition-all col-span-6 md:col-span-3 lg:col-span-2 shadow-inner shadow-white/10 rounded-xl">
       <figure>
         <Image
           width={200}
