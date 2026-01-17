@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
@@ -7,24 +7,17 @@
     var(--tw-gradient-stops)
   );
 
-  --color-brand-100: #6760a9;
-  --color-brand-200: #7870b3;
-  --color-brand-300: #8981bc;
-  --color-brand-400: #9a92c6;
-  --color-brand-500: #aaa3cf;
-  --color-brand-600: #bbb5d9;
-  --color-surface-100: #121212;
-  --color-surface-200: #282828;
-  --color-surface-300: #3f3f3f;
-  --color-surface-400: #575757;
-  --color-surface-500: #717171;
-  --color-surface-600: #8b8b8b;
-  --color-surface-mixed-100: #1b191f;
-  --color-surface-mixed-200: #302e34;
-  --color-surface-mixed-300: #46444a;
-  --color-surface-mixed-400: #5e5c61;
-  --color-surface-mixed-500: #777579;
-  --color-surface-mixed-600: #908f93;
+  --color-primary: #141414;
+  --color-purple: #7a4fde;
+  --color-pink: #ff70cc;
+  --color-yellow: #fce00a;
+  --color-blue: #59c9f7;
+  --color-light: #f0ebe6;
+}
+@theme inline {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-cabinet:
+    var(--font-cabinet-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
 /*
@@ -46,10 +39,10 @@
 }
 
 :root {
-    color-scheme: dark;
+  color-scheme: dark;
 }
 
 body {
-    min-height: 100vh;
-    background: rgb(10 10 10 );
+  min-height: 100vh;
+  background: var(--color-primary);
 }

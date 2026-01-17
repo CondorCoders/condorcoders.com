@@ -25,19 +25,20 @@ export default function Header() {
 
   return (
     <header
-      className={`transition-colors backdrop-filter backdrop-blur-sm duration-500 m-auto sticky top-0 z-10 w-full
+      className={`transition-colors backdrop-filter backdrop-blur-sm duration-500 m-auto fixed top-0 z-10 w-full
     ${isScrolling ? "bg-surface-mixed-100/75" : "bg-transparent"}`}
     >
       <div className="flex h-16 items-center justify-between px-6 py-3 max-w-6xl m-auto">
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-2 items-center">
           <Image
-            width={40}
-            height={40}
-            className="h-8 w-8 rounded-full md:h-10 md:w-10"
-            src="https://avatars.githubusercontent.com/u/123217980?v=4"
+            width={50}
+            height={50}
+            src="/logos/icon-colour.svg"
             alt="Logo de Condor Coders"
           />
-          <span className="text-lg">Condor Coders</span>
+          <span className="text-lg font-family-cabinet font-bold leading-none">
+            Condor <br /> Coders
+          </span>
         </div>
 
         <nav className="flex items-center justify-center gap-2">
