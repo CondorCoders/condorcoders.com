@@ -6,10 +6,9 @@ import { Instagram } from "@/icons/Instagram";
 import { Youtube } from "@/icons/Youtube";
 import Image from "next/image";
 import { LinkTag } from "../LinkTag";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "@/utils/gsap";
 
 const socialMediaLinks = [
   {
@@ -31,47 +30,71 @@ const socialMediaLinks = [
 ];
 
 export const Hero = () => {
-  const container = useRef(null);
-  const circle = useRef(null);
+  const containerRef = useRef(null);
+  const circleRef = useRef(null);
+  const mascotRef = useRef(null);
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(circle.current, {
+    const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: container.current,
+        trigger: containerRef.current,
         start: "top top",
         end: "+=30%",
         scrub: true,
         pin: true,
-        pinSpacing: true,
-        markers: true,
       },
-      scale: 20,
-      ease: "power1.inOut",
     });
+
+    timeline
+      .to(
+        circleRef.current,
+        {
+          scale: 20,
+          ease: "power1.inOut",
+        },
+        0,
+      )
+      .to(
+        mascotRef.current,
+        {
+          x: "20vw",
+          y: "20vh",
+          xPercent: -20,
+          yPercent: 20,
+          scale: 3,
+          ease: "power1.inOut",
+        },
+        0,
+      )
+      .to(mascotRef.current, {
+        x: "70vh",
+        y: "-80vh",
+        scale: 5,
+        ease: "power1.inOut",
+      });
   }, []);
 
   return (
     <section
-      ref={container}
+      ref={containerRef}
       className="m-auto overflow-hidden bg-primary flex min-h-dvh flex-col items-center justify-center px-7 text-center"
     >
       <div className="flex flex-col items-center relative">
         <div
-          ref={circle}
-          className="absolute bottom-0 left-0 aspect-square rounded-full bg-purple size-28"
+          ref={circleRef}
+          className="lg:absolute lg:bottom-0 lg:left-0 aspect-square rounded-full bg-purple size-28"
         />
         <Image
+          ref={mascotRef}
           width={100}
           height={100}
           src="/Mascot-Female.webp"
           alt="Imagen de condorita"
-          className="absolute bottom-0 left-0 size-40 top-16 animate-bounce"
+          className="absolute -top-16 lg:bottom-0 lg:left-0 size-40 lg:top-16"
         />
-        <h1 className="text-8xl text-right">
-          Programa en <br />
-          <span className="font-cabinet text-8xl">comunidad</span>
+        <h1 className="text-5xl lg:text-8xl text-center lg:text-right">
+          Programa en <br className="hidden lg:block" />
+          <span className="font-cabinet">comunidad</span>
         </h1>
       </div>
 
