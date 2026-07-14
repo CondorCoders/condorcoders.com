@@ -55,11 +55,6 @@ export const metadata: Metadata = {
       "es-EC": "/es-EC",
     },
   },
-  openGraph: {
-    siteName: "Condor Coders",
-    images: ["og-image.jpg"],
-    type: "website",
-  },
 };
 
 export default function RootLayout({

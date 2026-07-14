@@ -5,44 +5,48 @@ import { ArrowRight } from "@/icons/ArrowRight";
 import { Calendar } from "@/icons/Calendar";
 import { Gmail } from "@/icons/Gmail";
 import Image from "next/image";
-import type { EventPage } from "../event.types";
+import type { EventPage } from "../../event.types";
 import { Metadata } from "next";
 import { formatDate } from "@/utils/formatDate";
 import { ItineraryDate } from "@/components/ItineraryDate";
 import { Timezone } from "@/components/Timezone";
+import { cache } from "react";
 
 interface Props {
-  params: { slug: string[] };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ year: string; id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const baseUrl =
   "https://raw.githubusercontent.com/CondorCoders/condorcoders-config/main/pages";
 
-const getEvent = async (year: string, id: string): Promise<EventPage> => {
-  const res = await fetch(`${baseUrl}/events/${year}/${id}.json`, {
-    next: { revalidate: 1800 },
-  });
-  const data = await res.json();
-  return data;
-};
+export const getEvent = cache(
+  async (year: string, id: string): Promise<EventPage> => {
+    const res = await fetch(`${baseUrl}/events/${year}/${id}.json`, {
+      next: { revalidate: 1800 },
+    });
+    const data = await res.json();
+    return data;
+  },
+);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
-  const data = await getEvent(slug[0], slug[1]);
+  const { year, id } = await params;
+  const data = await getEvent(year, id);
 
   return {
     title: data.banner.title,
     description: data.banner.description,
     openGraph: {
-      images: [`${baseUrl}/images/opengraph/${slug[1]}.jpg`],
+      images: [`${baseUrl}/images/opengraph/${id}.jpg`],
+      // images: [`http://localhost:3000/eventos/${year}/${id}/opengraph-image`],
     },
   };
 }
 
 export default async function EventPage({ params }: Props) {
-  const { slug } = params;
-  const page: EventPage = await getEvent(slug[0], slug[1]);
+  const { year, id } = await params;
+  const page: EventPage = await getEvent(year, id);
   return (
     <>
       {/* Banner */}
@@ -51,28 +55,26 @@ export default async function EventPage({ params }: Props) {
         className="flex flex-col justify-between gap-4 shadow-xl shadow-white/30 backdrop-blur-md p-8 w-full min-h-96 relative rounded-3xl overflow-hidden bg-linear-to-br from-pink-50 from-30% via-pink-300 via-60% to-emerald-300 to-90%"
       >
         <div className="w-full md:w-1/2 flex flex-col gap-4">
-          <div className="text-surface-mixed-100 flex gap-2 items-end">
+          <div className="flex gap-2 items-end text-black">
             <Calendar className="size-7 stroke-2" />
             <time>{formatDate(page.banner.time)}</time>
           </div>
-          <h1 className="text-surface-mixed-100 font-bold text-4xl md:text-5xl">
+          <h1 className="font-bold text-4xl md:text-5xl text-black">
             {page.banner.title}
           </h1>
         </div>
 
         <div className="w-full md:w-1/2 gap-4 flex flex-col">
-          <p className="text-surface-mixed-100 md:text-lg">
-            {page.banner.description}
-          </p>
+          <p className="md:text-lg text-black">{page.banner.description}</p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <LinkTag
               target="_blank"
               href={page.banner.signupLink}
               label="Registrarse"
-              className="w-fit"
+              className="w-fit text-black"
             />
             <a target="_blank" className="group" href={page.banner.eventLink}>
-              <p className="flex gap-2 items-center text-surface-mixed-100">
+              <p className="flex gap-2 items-center text-black">
                 Ir al evento <ArrowRight className="size-4" />
               </p>
               <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 ease-in-out h-[2px] bg-brand-100"></span>
