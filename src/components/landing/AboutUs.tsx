@@ -2,11 +2,14 @@ import { Twitch } from "@/icons/Twitch";
 import { GitHub } from "@/icons/GitHub";
 import { Youtube } from "@/icons/Youtube";
 import { Discord } from "@/icons/Discord";
+import { Instagram } from "@/icons/Instagram";
+import { TikTok } from "@/icons/TikTok";
+import Image from "next/image";
 
 export const AboutUs = () => {
   return (
-    <section className="relative bg-purple w-full flex flex-col items-center justify-center px-4 py-24">
-      <div className="max-w-5xl w-full mx-auto">
+    <section className="relative w-full flex flex-col items-center justify-center px-4 py-24">
+      <div className="max-w-6xl w-full mx-auto">
         <h2 className="font-cabinet font-extrabold text-4xl md:text-5xl mb-4">
           ¿Qué encontrarás en Condor Coders?
         </h2>
@@ -17,16 +20,16 @@ export const AboutUs = () => {
 
         {/* Bento grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-          {/* Twitch — wide card */}
+          {/* Twitch */}
           <a
             href="https://twitch.tv/condorcoders"
             target="_blank"
             rel="noopener noreferrer"
-            className="group md:col-span-2 relative overflow-hidden rounded-3xl bg-light/5 border border-light/10 p-8 flex flex-col gap-6 hover:bg-light/10 transition-colors duration-300"
+            className="group md:col-span-2 relative overflow-hidden rounded-3xl bg-[#9146ff]/12 border border-[#9146ff]/35 p-8 flex flex-col gap-6 hover:bg-[#9146ff]/20 transition-colors duration-300"
           >
             <div className="flex items-center justify-between">
-              <Twitch className="w-10 h-10 text-white" />
-              <span className="text-light/50 text-sm font-medium bg-light/10 px-3 py-1 rounded-full">
+              <Twitch className="w-10 h-10 text-[#bf94ff]" />
+              <span className="text-[#d3b6ff] text-sm font-medium bg-[#9146ff]/22 px-3 py-1 rounded-full">
                 En vivo
               </span>
             </div>
@@ -48,16 +51,16 @@ export const AboutUs = () => {
             </div>
           </a>
 
-          {/* GitHub — tall card */}
+          {/* GitHub */}
           <a
             href="https://github.com/condorcoders"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl bg-light/5 border border-light/10 p-8 flex flex-col gap-6 hover:bg-light/10 transition-colors duration-300"
+            className="group relative overflow-hidden rounded-3xl bg-[#24292f]/35 border border-[#6e7681]/35 p-8 flex flex-col gap-6 hover:bg-[#30363d]/45 transition-colors duration-300"
           >
             <div className="flex items-center justify-between">
-              <GitHub className="w-9 h-9 text-light" />
-              <span className="text-light/50 text-sm font-medium bg-light/10 px-3 py-1 rounded-full">
+              <GitHub className="w-9 h-9 text-[#f0f6fc]" />
+              <span className="text-[#c9d1d9] text-sm font-medium bg-[#30363d]/70 px-3 py-1 rounded-full">
                 Open Source
               </span>
             </div>
@@ -78,19 +81,49 @@ export const AboutUs = () => {
             </div>
           </a>
 
-          {/* YouTube — tall card */}
+          {/* Instagram card */}
+          <a
+            href="https://www.instagram.com/condorcoders/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-3xl bg-[#e1306c]/10 border border-[#e1306c]/35 p-8 flex flex-col gap-6 justify-between hover:bg-[#e1306c]/18 transition-colors duration-300"
+          >
+            <div className="flex items-center justify-between">
+              <Instagram className="w-8 h-8 text-[#ff8ab3]" />
+              <span className="text-[#ffc5d9] text-sm font-medium bg-[#e1306c]/22 px-3 py-1 rounded-full">
+                Reels
+              </span>
+            </div>
+            <div>
+              <h3 className="font-cabinet font-bold text-2xl text-light mb-2">
+                Comunidad en Instagram
+              </h3>
+              <p className="text-light/60 text-base leading-relaxed">
+                Tips rápidos, anuncios y contenido corto para mantenerte al día
+                con la comunidad.
+              </p>
+            </div>
+            <div className="mt-auto flex items-center gap-2 text-light/40 text-sm group-hover:text-light/70 transition-colors">
+              <span>Ver Instagram</span>
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </a>
+
+          {/* YouTube */}
           <a
             href="https://youtube.com/@condorcoders"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-3xl bg-red-300/10 border border-red-300/20 p-8 flex flex-col gap-6 hover:bg-red-300/15 transition-colors duration-300"
+            className="group md:col-span-2 relative overflow-hidden rounded-3xl bg-[#ff0000]/10 border border-[#ff0000]/35 p-8 flex flex-col gap-6 hover:bg-[#ff0000]/16 transition-colors duration-300"
           >
             <div className="flex items-center justify-between">
               <Youtube
-                className="w-10 h-7 text-red-300"
-                secondaryColor="#ffe2e2"
+                className="w-10 h-7 text-[#ff4d4d]"
+                secondaryColor="#fff1f1"
               />
-              <span className="text-red-200 text-sm font-medium bg-red-100/15 px-3 py-1 rounded-full">
+              <span className="text-[#ffb3b3] text-sm font-medium bg-[#ff0000]/20 px-3 py-1 rounded-full">
                 Tutoriales
               </span>
             </div>
@@ -111,32 +144,45 @@ export const AboutUs = () => {
             </div>
           </a>
 
-          {/* Community stat card */}
-          <div className="rounded-3xl bg-purple/20 border border-purple/30 p-8 flex flex-col justify-end">
-            <div className="flex flex-col gap-4">
-              <span className="text-yellow text-sm font-medium bg-yellow/15 px-3 py-1 rounded-full self-start">
-                100% gratis
+          {/* TikTok card */}
+          <a
+            href="https://www.tiktok.com/@condorcoders"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-3xl bg-[#25f4ee]/8 border border-[#25f4ee]/35 p-8 flex flex-col gap-6 justify-between hover:bg-[#fe2c55]/16 transition-colors duration-300"
+          >
+            <div className="flex items-center justify-between">
+              <TikTok className="w-8 h-8 text-[#f4f4f4]" />
+              <span className="text-[#bffaf7] text-sm font-medium bg-[#25f4ee]/20 px-3 py-1 rounded-full">
+                Clips
               </span>
-              <p className="font-cabinet font-bold text-2xl text-light">
-                Sin barreras de acceso
-              </p>
-              <p className="text-light/60 text-sm leading-relaxed">
-                Todo el contenido es gratuito y abierto para cualquier persona
-                que quiera aprender a programar.
+            </div>
+            <div>
+              <h3 className="font-cabinet font-bold text-2xl text-light mb-2">
+                Contenido en TikTok
+              </h3>
+              <p className="text-light/60 text-base leading-relaxed">
+                Microtutoriales y momentos destacados para aprender algo útil en
+                pocos minutos.
               </p>
             </div>
-          </div>
-
-          {/* Free & open card */}
+            <div className="mt-auto flex items-center gap-2 text-light/40 text-sm group-hover:text-light/70 transition-colors">
+              <span>Ver TikTok</span>
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </a>
+          {/* Discord */}
           <a
             href="https://discord.com/invite/condorcoders"
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-3xl bg-yellow/10 border border-yellow/20 p-8 flex flex-col gap-6 justify-between hover:bg-yellow-300/15 transition-colors duration-300"
+            className="group rounded-3xl bg-[#5865f2]/12 border border-[#5865f2]/35 p-8 flex flex-col gap-6 justify-between hover:bg-[#5865f2]/20 transition-colors duration-300"
           >
             <div className="flex items-center justify-between">
-              <Discord className="w-10 h-7 text-white" />
-              <span className="text-purple-200 text-sm font-medium bg-purple-100/15 px-3 py-1 rounded-full">
+              <Discord className="w-10 h-7 text-[#b9c0ff]" />
+              <span className="text-[#d3d7ff] text-sm font-medium bg-[#5865f2]/20 px-3 py-1 rounded-full">
                 Comunidad
               </span>
             </div>
@@ -145,9 +191,8 @@ export const AboutUs = () => {
                 Comunidad en Discord
               </h3>
               <p className="text-light/60 text-base leading-relaxed">
-                Únete a nuestra comunidad en Discord para interactuar con otros
-                programadores, compartir conocimientos y recibir ayuda en tus
-                proyectos.
+                Interactua con otros programadores, comparte conocimientos y
+                recibir ayuda en tus proyectos.
               </p>
             </div>
             <div className="mt-auto flex items-center gap-2 text-light/40 text-sm group-hover:text-light/70 transition-colors">
@@ -157,6 +202,30 @@ export const AboutUs = () => {
               </span>
             </div>
           </a>
+          {/* Sofia intro card */}
+          <div className="rounded-3xl bg-purple/20 border border-purple/30 p-8 flex flex-col justify-between gap-4">
+            <div className="flex flex-col gap-4">
+              <div className="size-25 overflow-hidden rounded-full">
+                <Image
+                  src="/foto-de-perfil.png"
+                  alt="Foto de perfil de Sofía"
+                  width={160}
+                  height={160}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span className="text-yellow text-sm font-medium bg-yellow/15 px-3 py-1 rounded-full self-start">
+                Fundadora
+              </span>
+              <p className="font-cabinet font-bold text-2xl text-light">
+                Hola, soy Sofía
+              </p>
+              <p className="text-light/60 text-sm leading-relaxed">
+                Programadora frontend de Ecuador, actualmente residente en
+                Australia.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

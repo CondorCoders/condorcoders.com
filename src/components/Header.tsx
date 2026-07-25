@@ -29,23 +29,23 @@ export default function Header() {
     ${isScrolling ? "bg-surface-mixed-100/75" : "bg-transparent"}`}
     >
       <div className="flex h-16 items-center justify-between px-6 py-3 max-w-6xl m-auto">
-        <div className="flex gap-2 items-center">
+        <Link href="/" className="flex gap-2 items-center" aria-label="Ir al inicio">
           <Image
             width={50}
             height={50}
             src="/logos/icon-colour.svg"
             alt="Logo de Condor Coders"
           />
-          <span className="text-lg font-family-cabinet font-bold leading-none">
+          <span className="text-lg font-family-cabinet font-bold leading-none text-shadow-lg">
             Condor <br /> Coders
           </span>
-        </div>
+        </Link>
 
         <nav className="flex items-center justify-center gap-2">
           {links.map((link) => (
             <Link
               key={link.title}
-              className="opacity-80 transition-opacity ease-in-out hover:opacity-100"
+              className="opacity-85 ease-in-out hover:opacity-100 hover:text-pink-50 transition-all text-shadow-md"
               href={link.path}
             >
               {link.title}
