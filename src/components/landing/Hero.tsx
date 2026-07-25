@@ -91,13 +91,13 @@ export const Hero = () => {
       >
         <source src="/videos/clouds-video.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_62%_42%,rgba(255,255,255,0.04)_22%,rgba(0,0,0,0.55)_100%)] md:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.0)_5%,rgba(255,255,255,0.85)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-black/45 md:bg-transparent md:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.0)_5%,rgba(255,255,255,0.85)_100%)]" />
 
       <div className="flex w-full md:max-w-6xl gap-4 flex-col items-center justify-center">
         <div
           role="img"
           aria-label="Condorita volando"
-          className="size-52 shrink-0 bg-no-repeat"
+          className="size-32 md:size-52 shrink-0 bg-no-repeat"
           style={{
             backgroundImage: "url('/condorita-bird_flying_forward.png')",
             backgroundSize: `${SPRITE_COLUMNS * 100}% ${SPRITE_ROWS * 100}%`,
