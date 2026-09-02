@@ -1,0 +1,108 @@
+@reference "../globals.css";
+
+.resource-content {
+  @apply text-light/90 leading-7;
+}
+
+.resource-content h2 {
+  @apply mt-10 text-3xl font-semibold;
+}
+
+.resource-content h3 {
+  @apply mt-8 text-2xl font-semibold;
+}
+
+.resource-content p {
+  @apply mt-4 text-light/80;
+}
+
+.resource-content a {
+  @apply text-blue underline decoration-blue/70 underline-offset-4;
+}
+
+.resource-content ul,
+.resource-content ol {
+  @apply mt-4 space-y-2;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.resource-content ul {
+  list-style-type: disc;
+}
+
+.resource-content ol {
+  list-style-type: decimal;
+}
+
+.resource-content li {
+  @apply text-light/80;
+  display: list-item;
+}
+
+.resource-content blockquote {
+  @apply mt-6 border-l-4 border-blue/60 pl-4 text-light/75 italic;
+}
+
+.resource-content hr {
+  @apply my-8 border-light/20;
+}
+
+.resource-content table {
+  @apply mt-6 w-full border-collapse overflow-hidden rounded-xl border border-light/20 text-sm;
+  display: block;
+  overflow-x: auto;
+}
+
+.resource-content thead {
+  @apply bg-light/10;
+}
+
+.resource-content th,
+.resource-content td {
+  @apply border border-light/15 px-3 py-2 text-left align-top;
+}
+
+.resource-content th {
+  @apply font-semibold text-light;
+}
+
+.resource-content td {
+  @apply text-light/80;
+}
+
+.resource-content
+  :where(p, li, blockquote, h1, h2, h3, h4, h5, h6, a, strong, em)
+  code {
+  @apply rounded-md border border-light/20 bg-light/10 px-1.5 py-0.5 text-sm text-yellow;
+  display: inline;
+  white-space: break-spaces;
+}
+
+figure[data-rehype-pretty-code-figure] {
+  @apply my-6 overflow-hidden rounded-2xl border border-light/20 bg-black/40;
+}
+
+figure[data-rehype-pretty-code-figure] pre {
+  @apply overflow-x-auto px-4 py-4 text-sm leading-6;
+}
+
+figure[data-rehype-pretty-code-figure] code {
+  @apply grid;
+}
+
+figure[data-rehype-pretty-code-figure] [data-rehype-pretty-code-title] {
+  @apply border-b border-light/15 bg-black/40 px-4 py-2 text-xs text-light/70;
+}
+
+figure[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-2;
+}
+
+figure[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-white/10;
+}
+
+figure[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded-md bg-yellow/20 px-1;
+}

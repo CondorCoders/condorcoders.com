@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const links = [
   { title: "Eventos", path: "/eventos" },
+  { title: "Recursos", path: "/recursos" },
   { title: "Proyectos", path: "/proyectos" },
 ];
 
